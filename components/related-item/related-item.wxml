@@ -1,0 +1,15 @@
+<!--components/related-item/related-item.wxml-->
+<wxs src="/utils/format.wxs" module="fmt"/>
+<view class="item">
+  <view class="album">
+    <image class="image" src="{{itemData.coverUrl}}" mode="widthFix"/>
+    <view class="info">
+      <view class="count">{{fmt.formatCount(itemData.playTime)}}</view>
+    </view>
+  </view>
+
+  <view class="content">
+    <view class="title">{{itemData.title}}</view>
+    <view class="nickname">{{itemData.creator[0].userName}}</view>
+  </view>
+</view>

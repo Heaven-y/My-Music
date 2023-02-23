@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "related-item": "/components/related-item/related-item" 
+  }
+}
