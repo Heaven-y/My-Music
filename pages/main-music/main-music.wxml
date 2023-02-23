@@ -1,2 +1,6 @@
 <!--pages/main-music/main-music.wxml-->
-<text>pages/main-music/main-music.wxml</text>
+<van-search 
+  value="{{ searchValue }}"
+  background="#ff0000"
+  placeholder="请输入搜索关键词"
+/>
