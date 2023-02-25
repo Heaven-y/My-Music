@@ -67,6 +67,8 @@ Page({
     })
   },
   onRecommendMoreClick() {
-    console.log('推荐歌曲更多的点击');
+    wx.navigateTo({
+      url: '/pages/detail-song/detail-song?type=recommend',
+    })
   }
 })

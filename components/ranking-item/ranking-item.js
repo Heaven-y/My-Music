@@ -12,7 +12,10 @@ Component({
   },
   methods: {
     onRankingItemClick() {
-      console.log('榜单的点击');
+      const key = this.properties.key
+      wx.navigateTo({
+        url: `/pages/detail-song/detail-song?type=ranking&key=${key}`,
+      })
     }
   }
 })
