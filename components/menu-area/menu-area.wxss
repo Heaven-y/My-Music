@@ -1,0 +1,21 @@
+/* components/menu-area/menu-area.wxss */
+.list {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  margin-left: -20rpx;
+}
+.list::-webkit-scrollbar { 
+  display: none;
+  height: 0;
+  width: 0;
+}
+
+.list .item {
+  width: 220rpx;
+  flex-shrink: 0;
+  margin-right: 24rpx;
+}
+.list .item:first-child {
+  padding-left: 20rpx;
+}

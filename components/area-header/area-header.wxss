@@ -1,0 +1,20 @@
+/* components/area-header/area-header.wxss */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: 20rpx 0;
+  font-size: 36rpx;
+}
+.header .title {
+  font-weight: 700;
+  color: #000;
+}
+.header .more {
+  display: flex;
+  align-items: center;
+  color: #888;
+}
+.header .more .text {
+  font-size: 28rpx;
+}

@@ -1,14 +1,15 @@
 {
-  "pages":[
+  "pages": [
     "pages/main-music/main-music",
     "pages/main-video/main-video",
-    "pages/detail-video/detail-video"
+    "pages/detail-video/detail-video",
+    "pages/detail-search/detail-search"
   ],
-  "window":{
-    "backgroundTextStyle":"dark",
+  "window": {
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "MyMusic",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "list": [
