@@ -1,11 +1,7 @@
-import { getMusicBanner, getPlaylistDetail, getSongMenuList } from "../../services/module/music"
+import { getMusicBanner, getSongMenuList } from "../../services/module/music"
+import rankingStore, { rankingMap } from "../../stores/rankingStore"
+import recommendStore from "../../stores/recommendStore"
 import querySelect from "../../utils/query-select"
-
-const rankingMap = {
-  newRanking: 3779629,
-  originRanking: 2884035,
-  upRanking: 19723756
-}
 
 // pages/main-music/main-music.js
 Page({
@@ -25,9 +21,25 @@ Page({
 
   onLoad() {
     this.fetchMusicBanner()
-    this.fetchRecommendSongs()
+
+    recommendStore.onState('recommendInfo', value => {
+      if (Object.keys(value).length) {
+        this.setData({ recommendSongs: value.tracks.slice(0, 6) })
+      }
+    })
+    recommendStore.dispatch('fetchRecommendSongsAction')
+
     this.fetchSongMenuList()
-    this.fetchRankingData()
+
+    for (const key in rankingMap) {
+      rankingStore.onState(key, value => {
+        if (Object.keys(value).length) {
+          const newRankingInfos = {...this.data.rankingInofs, [key]: value}
+          this.setData({ rankingInofs: newRankingInfos })
+        }
+      })
+    }
+    rankingStore.dispatch('fetchRankingDataAction')
   },
 
   async fetchMusicBanner() {
@@ -35,12 +47,6 @@ Page({
     this.setData({ banners: res.banners })
   },
 
-  async fetchRecommendSongs() {
-    const res = await getPlaylistDetail(3778678)
-    const recommendSongs = res.playlist.tracks.slice(0, 6)
-    this.setData({ recommendSongs })
-  },
-  
   fetchSongMenuList() {
     getSongMenuList('华语').then(res => {
       this.setData({ ChMenuList: res.playlists })
@@ -48,16 +54,6 @@ Page({
     getSongMenuList('流行').then(res => {
       this.setData({ PopMenuList: res.playlists })
     })
-  },
-
-  fetchRankingData() {
-    for(const key in rankingMap) {
-      const id = rankingMap[key]
-      getPlaylistDetail(id).then(res => {
-        const newRankingInfos = {...this.data.rankingInofs, [key]: res.playlist}
-        this.setData({ rankingInofs: newRankingInfos })
-      })
-    }
   },
 
 
