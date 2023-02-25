@@ -1,0 +1,19 @@
+/* pages/detail-menu/detail-menu.wxss */
+page {
+  box-sizing: border-box;
+  padding: 0 20rpx;
+}
+
+.cat .title {
+  font-size: 44rpx;
+  font-weight: 700;
+  margin: 10rpx 0;
+}
+.cat .list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.list .item {
+  width: 48%;
+}

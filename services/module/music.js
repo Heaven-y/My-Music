@@ -26,3 +26,9 @@ export function getSongMenuList(cat = "全部", limit = 6, offset = 0) {
     }
   })
 }
+
+export function getSongMenuTags() {
+  return myRequest.get({
+    url: '/playlist/hot'
+  })
+}

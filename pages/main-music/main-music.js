@@ -2,7 +2,9 @@ import { getMusicBanner, getSongMenuList } from "../../services/module/music"
 import rankingStore, { rankingMap } from "../../stores/rankingStore"
 import recommendStore from "../../stores/recommendStore"
 import querySelect from "../../utils/query-select"
+import throttle  from '../../utils/throttle'
 
+const querySelectThrottle = throttle(querySelect, 100)
 // pages/main-music/main-music.js
 Page({
   data: {
@@ -62,7 +64,7 @@ Page({
   },
   // 获取图片加载完后的高度
   onBannerLoad() {
-    querySelect('.banner-image').then(res => {
+    querySelectThrottle('.banner-image').then(res => {
       this.setData({ bannerHeight: res[0].height })
     })
   },

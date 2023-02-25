@@ -22,7 +22,9 @@ Component({
   },
   methods:{
     onMenuMoreClick() {
-      console.log('歌单更多的点击');
+      wx.navigateTo({
+        url: '/pages/detail-menu/detail-menu',
+      })
     }
   }
 })
