@@ -8,7 +8,10 @@ Component({
   },
   methods: {
     onSongItemClick() {
-      console.log('歌曲的点击');
+      const id = this.properties.itemData.id
+      wx.navigateTo({
+        url: `/pages/music-player/music-player?id=${id}`,
+      })
     }
   }
 })
